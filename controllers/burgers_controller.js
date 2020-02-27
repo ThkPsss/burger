@@ -7,7 +7,7 @@ var burger = require("../models/burger.js");
 module.exports = router;
 
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
       var hbsObject = {
         burgers: data
       };
@@ -17,7 +17,7 @@ router.get("/", function(req, res) {
   });
 
   router.post("/api/burgers", function(req, res) {
-    burger.create([
+    burger.insertOne([
       "name", "eatten"
     ], [
       req.body.name, req.body.eatten
@@ -32,7 +32,7 @@ router.get("/", function(req, res) {
   
     console.log("condition", condition);
   
-    burger.update({
+    burger.updateOne({
       eatten: req.body.eatten
     }, condition, function(result) {
       if (result.changedRows == 0) {
