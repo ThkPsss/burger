@@ -19,7 +19,7 @@ router.get("/", function(req, res) {
   router.post("/", function(req, res) {
     console.log(req.body.name)
     if(req.body.name !== ""){
-      burger.insertOne(req.body.name.trim(), function(){
+      burger.insertOne(req.body.name, function(){
         res.redirect("/")
       })
     }
