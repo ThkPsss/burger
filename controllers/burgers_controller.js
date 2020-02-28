@@ -4,7 +4,6 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
-module.exports = router;
 
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
@@ -17,9 +16,9 @@ router.get("/", function(req, res) {
   });
 
   router.post("/", function(req, res) {
-    console.log(req.body.name)
-    if(req.body.name !== ""){
-      burger.insertOne(req.body.name.trim(), function(){
+    console.log(req.body.burgerName)
+    if(req.body.burgerName !== ""){
+      burger.insertOne(req.body.burgerName.trim(), function(){
         res.redirect("/")
       })
     }

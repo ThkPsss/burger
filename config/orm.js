@@ -10,9 +10,9 @@ var orm = {
             cb(res)
         })
     },
-    insertOne: function(tableInput, columnName, name, cb){
+    insertOne: function(tableInput, columnName, burgerName, cb){
         var queryString = "INSERT INTO ?? (??) VALUES (?)"
-        connection.query(queryString, [tableInput, columnName, name], function(err, res){
+        connection.query(queryString, [tableInput, columnName, burgerName], function(err, res){
             if (err) {
                 throw err
             }
