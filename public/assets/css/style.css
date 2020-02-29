@@ -10,13 +10,27 @@ body{
     background-image: url(../img/437ee200-fb38-11e9-bde5-d1a4ee5634df.png);
 }
 
-#burger-container{
+#burgers-available{
     align-items: center;
     border-style: solid;
     border-color: burlywood;
     border-width: 3px;
     background-color: goldenrod;
     text-align: center;
+    color: white;
+    background-image: url(../img/68629668-bright-seamless-background-with-repeating-geometric-pattern-abstract-vector-illustration-good-backgr.jpg)
+}
+
+#burgers-devoured{
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    background-color: gray;
+    text-align: center;
+    color: red;
+    background-image: url(../img/graveyard.jpg)
+
 }
 
 #create-burger{

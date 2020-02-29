@@ -7,35 +7,36 @@
 <br>
 <div class="wrapper">
   
-  <section id="burger-container">
-    <div id="burgers-availabe">
-      <h2>Not eatten Burgers</h2>
-
-      <ul>
-        {{#each burger}}
-          {{#unless eatten}}
-            {{>  burgers/burger-block eat=true}}
-          {{/unless}}
-        {{/each}}
-      </ul>
-    </div>
-
-    <div id="burgers-devoured">
-      <h2>Eatten Burgers!</h2>
-      <ul>
-        {{#each burger}}
-          {{#if eatten}}
-            {{> burgers/burger-block eat=false}}
-          {{/if}}
-        {{/each}}
-      </ul>
-    </div>
-  </section>
+	<section id="burgers-container">
+		<div id="burgers-available">
+			<h2>Burgers Available</h2>
+			{{#each burgers}}
+				{{#unless this.devoured}}
+				  <div class="burger">
+				    <form class="devour-burger-form" action="/{{id}}?_method=PUT" method="POST">
+				  		<button class="eat-btn">EAT</button>
+				    </form>
+						{{burgerName}} <span>#{{id}}</span>
+				  </div>
+				{{/unless}}
+			{{/each}}
+		</div>
+    <br>
+    <br>
+		<div id="burgers-devoured">
+			<h2>Burger Graveyard</h2>
+			{{#each burgers}}
+				{{#if this.devoured}}
+				  <div class="burger">{{burgerName}} <span>#{{id}}</span></div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</section>
 
   <div id="create-burger">
     <h2>Add a Burger</h2>
     <form action="/" method="POST">
-      <input id="burger-name" type="text" name="burger_name" placeholder="Create a burger">
+      <input id="burger-name" type="text" name="burgerName" placeholder="Create a burger">
       <button id="submit-btn" type="submit">Make Burger!</button>
     </form>
   </div>
