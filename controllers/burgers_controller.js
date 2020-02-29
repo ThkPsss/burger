@@ -25,10 +25,21 @@ router.get("/", function(req, res) {
   });
 
   router.put("/:id", function(req, res) {
-    console.log(req.params.id)
-    burger.updateOne(req.params.id, function () {
-      res.redirect("/")
+    console.log("What im getting" + req.params.id);
+    const burgerInfo = {
+      tableInput: 'burgers', 
+      updateColumnName: 'devoured', 
+      updateRowVal: 1, 
+      searchColumnName: 'id', 
+      searchRowVal: req.params.id
+    }
+    console.log('burgerInfo ...')
+    console.log(burgerInfo);
+    
+    burger.updateOne(burgerInfo, function() {
+      console.log("Made it back ...")
+      res.redirect("/");
     })
-  });
+  })
 
   module.exports = router;

@@ -19,14 +19,16 @@ var orm = {
             cb(res)
         })
     },
-    updateOne: function(tableInput, updateColumnName, updateRowVal, searchColumnName, searchRowVal, cb) {
-        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?"
-        connection.query(queryString, [tableInput, updateColumnName, updateRowVal, searchColumnName, searchRowVal], function(err, res) {
-            if (err) {
-                throw err
-            }
-            cb(res)
-        })
-    }
+	updateOne: function(burger, cb) {
+        console.log('burger ...')
+        console.log(burger)
+		var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+		connection.query(queryString, [burger.tableInput, burger.updateColumnName, burger.updateRowVal, burger.searchColumnName, burger.searchRowVal], function(err, res) {
+			if (err) {
+				throw err;
+			}
+			cb(res);
+		});
+	}
 }
 module.exports = orm;
