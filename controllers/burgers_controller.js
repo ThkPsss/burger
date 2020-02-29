@@ -16,9 +16,9 @@ router.get("/", function(req, res) {
   });
 
   router.post("/", function(req, res) {
-    console.log(req.body.burgerName)
-    if(req.body.burgerName !== ""){
-      burger.insertOne(req.body.burgerName.trim(), function(){
+    console.log(req.body.burger_name)
+    if(req.body.burger_name !== ""){
+      burger.insertOne(req.body.burger_name.trim(), function(){
         res.redirect("/")
       })
     }
